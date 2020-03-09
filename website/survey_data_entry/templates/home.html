@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header id="header">
+  <a href="#" class="title">Economics Assignment</a>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}" class="active">Plots</a></li>
+      <li><a href="{% url 'survey' %}">Add Survey</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}"> log out</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}"> log in</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <section>
+	This is not a live page refresh to see changes
+	<h2>Data</h2>
+	{% for question in questions %}
+	<h4>{{question.question_text}}</h4>
+
+	{% if question.question_type == 'S' %}
+
+	{% for choice in choices %}
+	{% if choice.question == question %}
+	{{choice.choice_text}}:{{choice.votes}}<br>
+	{% endif %}
+	{% endfor %}
+
+	{% else %}
+
+	{% for data_point in data_points %}
+	{% if data_point.question == question %}
+	{{data_point.answer}}<br>
+	{% endif %}
+	{% endfor %}
+
+	{% endif %}
+	<br>
+
+	{% endfor %}
+
+	<hr>
+
+	<h2>Credits</h2>
+	{% for loggist in loggists %}
+	<p>{{loggist.user.username}}({{loggist.roll_no}})
+	has entered {{loggist.number_of_surveys_completed}}
+	surveys.</p>
+	{% endfor %}
+
+      </section>
+    </div>
+  </section>
+</div>
+{% endblock content %}

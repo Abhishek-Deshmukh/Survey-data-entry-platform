@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header id="header">
+  <a href="#" class="title">Economics Assignment</a>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}">Plots</a></li>
+      <li><a href="{% url 'survey' %}">Add Survey</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}" class="active"> log out</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}" class="active"> log in</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <h1 class="major">Login Form</h1>
+
+      <!-- Form -->
+      <section>
+	{% if form.errors %}
+	{% for error in form.errors %}
+	<pre><code>{{error}}</code></pre>
+	{% endfor %}
+	{% endif %}
+	{% if form.username.errors %}
+	<pre><code>Username:{{form.username.errors}}</code></pre>
+	{% endif %}
+	{% if form.password.errors %}
+	<pre><code>Password:{{form.password.errors}}</code></pre>
+	{% endif %}
+	<form method="POST">
+	  {% csrf_token %}
+	  <div class="row gtr-uniform">
+	    <div class="col-6 col-12-small">
+	      <input type="text" name="username" id="{{ form.username.id_for_label }}" placeholder="Username">
+	    </div>
+	    <div class="col-6 col-12-small">
+	      <input type="password" name="password" id="{{ form.password.id_for_label }}" placeholder="Password">
+	    </div>
+	    <div class="col-12">
+	      <ul class="actions">
+		<li><input type="submit" value="Login" class="primary"></li>
+	      </ul>
+	    </div>
+	  </div>
+	</form>
+      </section>
+
+    </div>
+  </section>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header id="header">
+  <a href="#" class="title">Economics Assignment</a>
+  <nav>
+    <ul>
+      <li><a href="#">Plots</a></li>
+      <li><a href="#" class="active">Add Survey</a></li>
+      <li><a href="#">Log out</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <h1 class="major">Section Heading</h1>
+
+      <!-- Form -->
+      <section>
+	<h2>Form</h2>
+	<form method="post" action="#">
+	  <div class="row gtr-uniform">
+	    <div class="col-6 col-12-xsmall">
+	      <input type="text" name="demo-name" id="demo-name" placeholder="Name">
+	    </div>
+	    <div class="col-6 col-12-xsmall">
+	      <input type="email" name="demo-email" id="demo-email" placeholder="Email">
+	    </div>
+	    <div class="col-12">
+	      <select name="demo-category" id="demo-category">
+		<option value="" selected="selected">- Category -</option>
+		<option value="1">Manufacturing</option>
+		<option value="1">Shipping</option>
+		<option value="1">Human Resources</option>
+	      </select>
+	    </div>
+	    <h2>Question text</h2>
+	    <div class="col-4 col-12-small">
+	      <input type="radio" id="demo-priority-low" name="demo-priority" checked="checked">
+	      <label for="demo-priority-low">Low</label>
+	    </div>
+	    <div class="col-4 col-12-small">
+	      <input type="radio" id="demo-priority-normal" name="demo-priority">
+	      <label for="demo-priority-normal">Normal</label>
+	    </div>
+	    <div class="col-4 col-12-small">
+	      <input type="radio" id="demo-priority-high" name="demo-priority">
+	      <label for="demo-priority-high">High</label>
+	    </div>
+	    <div class="col-12">
+	      <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+	    </div>
+	    <div class="col-12">
+	      <ul class="actions">
+		<li><input type="submit" value="Send Message" class="primary"></li>
+		<li><input type="reset" value="Reset"></li>
+	      </ul>
+	    </div>
+	  </div>
+	</form>
+      </section>
+
+    </div>
+  </section>
+
+</div>
+{% endblock content %}

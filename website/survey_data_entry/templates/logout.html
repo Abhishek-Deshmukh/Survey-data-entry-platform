@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header id="header">
+  <a href="{% url 'home' %}" class="title">Economics Assignment</a>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}">Plots</a></li>
+      <li><a href="{% url 'survey' %}">Add Survey</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}" class="active"> Log out</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}" class="active"> Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <!-- Form -->
+      <section>
+	<h2>You have logged out</h2>
+	<h2>Login again to fill more forms</h2>
+      </section>
+
+    </div>
+  </section>
+
+</div>
+{% endblock content %}

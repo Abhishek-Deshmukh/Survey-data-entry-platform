@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header id="header">
+  <a href="#" class="title">Economics Assignment</a>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}">Plots</a></li>
+      <li><a href="#" class="active">Add Survey</a></li>
+      <li><a href="{% url 'logout' %}">Log out</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <h1 class="major">Survey No.{{survey_instance.id}} | Q{{question.id}}</h1>
+
+      <!-- Form -->
+      <section>
+	<form method="post">
+	  {% csrf_token %}
+	  <h2>{{question.question_text}}</h2>
+	  <div style="display:none;">
+	    {{form.loggist}}
+	    {{form.survey_instance}}
+	    {{form.question}}
+	  </div>
+	  {% if choices %}
+	  {% for choice in choices %}
+
+	  <div class="col-4 col-12-small">
+	    <input type="radio"
+		   id="{{choice.choice_text}}"
+		   name="selected_option"
+		   value="{{choice.choice_text}}">
+	    <label for="{{choice.choice_text}}">
+	      {{choice.choice_text}}
+	    </label>
+	  </div>
+	  {% endfor %}
+	  {% else %}
+	  {{form.answer}}
+	  {% endif %}
+	  <br>
+	  <div class="col-12">
+	    <ul class="actions">
+	      <li><input type="submit" value="Submit" class="primary"></li>
+	      <li><input type="reset" value="Reset"></li>
+	    </ul>
+	  </div>
+	</form>
+      </section>
+    </div>
+  </section>
+
+</div>
+{% endblock content %}
