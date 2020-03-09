@@ -24,13 +24,21 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <section>
-	This is not a live page refresh to see changes
 	<h2>Data</h2>
 	{% for question in questions %}
 	<h4>{{question.question_text}}</h4>
 
 	{% if question.question_type == 'S' %}
 
+	<div class="box alt">
+	  <div class="row gtr-uniform">
+	    <div class="col-4">
+	      <span class="image fit">
+		<img src="media/plots/{{question.id}}_bar.png" alt="plot">
+	      </span>
+	    </div>
+	  </div>
+	</div>
 	{% for choice in choices %}
 	{% if choice.question == question %}
 	{{choice.choice_text}}:{{choice.votes}}<br>

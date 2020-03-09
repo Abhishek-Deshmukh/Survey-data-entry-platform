@@ -11,6 +11,7 @@ def test(request):
 
 def home(request):
     # migrate_data_into_choices()
+    # update_plots()
     context = {
             'loggists' : Loggist.objects.all(),
             'questions' : Question.objects.all(),
