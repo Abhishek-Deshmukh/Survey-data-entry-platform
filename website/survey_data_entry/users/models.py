@@ -7,4 +7,4 @@ class Loggist(models.Model):
     number_of_surveys_completed = models.IntegerField(default = 0)
     has_uncompleted_survey = models.BooleanField(default = False)
     def __str__(self):
-        return self.roll_no
+        return str(self.roll_no)

@@ -1,4 +1,4 @@
-#!/home/d/Documents/NISER/SEMESTER-4/H205/assignment/website/env/bin/python
+#!/home/ubuntu/Survey-data-entry-platform/website/env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
