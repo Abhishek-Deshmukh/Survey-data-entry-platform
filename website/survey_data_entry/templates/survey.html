@@ -19,7 +19,7 @@
   <!-- Main -->
   <section id="main" class="wrapper">
     <div class="inner">
-      <h1 class="major">Survey No.{{survey_instance.id}} | Q{{question.id}}</h1>
+      <h1 class="major">Survey No.{{survey_instance.id}} | Q{{question.id}} <a href="{% url 'household_member_create' survey_instance.id %}" style="font-size:20px;">(Add household member)</a></h1>
 
       <!-- Form -->
       <section>
@@ -44,7 +44,9 @@
 	  </div>
 	  {% endfor %}
 	  {% else %}
-	  {{form.answer}}
+	  <input type="text"
+	  name="selected_option"
+	  blank="true">
 	  {% endif %}
 	  <br>
 	  <div class="col-12">
